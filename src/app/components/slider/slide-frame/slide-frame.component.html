@@ -1,0 +1,24 @@
+<div
+  [attr.data-swiper-parallax-y]="'90%'"
+  [class]="
+    'slide h-full overflow-hidden font-bold pointer-events-none state-' +
+    slide.state
+  "
+>
+  <div class="slide-bg-wrapper overflow-hidden relative h-full">
+    <div
+      class="slide-bg pointer-events-auto"
+      [style]="
+        'background-image: url(' +
+        slide.bgUrl +
+        '); --_slides-amount: ' +
+        slidesAmount +
+        '; --_slide-index: ' +
+        slide.index
+      "
+    ></div>
+  </div>
+  <div
+    class="bg-overlay absolute inset-0 bg-black bg-opacity-50 pointer-events-none"
+  ></div>
+</div>

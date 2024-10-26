@@ -1,0 +1,32 @@
+<div
+  [class]="
+    'slide-content fixed inset-0 flex flex-col justify-center m-[10vmin] z-10 pointer-events-none items-start overflow-hidden state-' +
+    slide.state
+  "
+>
+  <div class="slide-info pointer-events-auto uppercase max-w-[70%]">
+    <a [routerLink]="'/case/' + slide.title">
+      <div class="slide-title text-4xl md:text-7xl mb-4 text-pretty font-bold">
+        <div
+          class="word inline-block"
+          *ngFor="let word of titleCharArr; let wordIndex = index"
+        >
+          <span
+            *ngFor="let char of word; let i = index"
+            [style]="'--_char-index: ' + (i + getPreviousWordLength(wordIndex))"
+            class="title-char char inline-block"
+            [innerHtml]="char"
+          >
+          </span>
+          <span class="opacity-0">_</span>
+        </div>
+      </div>
+      <div
+        class="slide-category char category-char text-xs md:text-base text-zinc-500 font-bold"
+        [style]="'--_char-index: ' + 0"
+      >
+        {{ slide.category }}
+      </div>
+    </a>
+  </div>
+</div>

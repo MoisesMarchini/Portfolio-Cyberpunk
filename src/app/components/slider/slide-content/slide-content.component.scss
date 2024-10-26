@@ -1,0 +1,30 @@
+.slide-content {
+  --_slide-transition-duration: 0.85s;
+  --_char-transition-duration: 0.05s;
+  --_default-char-delay-duration: 0.5;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  &.state-curr {
+    opacity: 1;
+    transition: opacity var(--_slide-transition-duration) ease-in-out;
+    transition-delay: var(--_slide-transition-duration);
+    .char {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: calc(var(--_char-delay) + (var(--_slide-transition-duration)));
+    }
+  }
+}
+
+.char {
+  --_char-delay: calc(var(--_char-index) * (var(--_char-transition-duration) * var(--_default-char-delay-duration)));
+  opacity: 0;
+  transition: all calc(var(--_char-transition-duration) * 10) ease-in-out;
+  transition-delay: var(--_char-delay);
+}
+.title-char {
+  transform: translateY(-2rem);
+}
+.category-char {
+  transform: translateY(2rem);
+}

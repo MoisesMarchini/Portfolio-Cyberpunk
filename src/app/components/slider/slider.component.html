@@ -1,0 +1,21 @@
+<swiper-container
+  #swiperContainer
+  class="w-screen h-screen relative overflow-auto flex flex-col"
+  init="false"
+>
+  <swiper-slide
+    #swiperSlide
+    class="relative overflow-hidden"
+    *ngFor="let slide of slides; let i = index"
+    [style]="'--_index:' + (slides.length - i)"
+  >
+    <app-slide-frame [slide]="slide"></app-slide-frame>
+  </swiper-slide>
+</swiper-container>
+<div class="slide-content-group">
+  <app-slide-content
+    *ngFor="let slide of slides; let i = index"
+    [slide]="slide"
+  ></app-slide-content>
+</div>
+<app-slider-controls></app-slider-controls>
