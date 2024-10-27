@@ -55,6 +55,9 @@ export class CaseDetailsComponent {
       this.case = foundedCase;
       this.sliderService.setCurrentSlide(caseIndex);
     }
+    else {
+      this.router.navigateByUrl('/')
+    }
 
     this.onScroll();
   }
