@@ -10,8 +10,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        inconsolata: ["Inconsolata", "sans-serif"],
-        orbitron: ["Orbitron", "sans-serif"],
+        secondary: ["Cinzel", "serif"],
+        primary: ["Raleway", "sans-serif"],
       },
     },
   },

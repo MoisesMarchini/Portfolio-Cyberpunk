@@ -9,7 +9,7 @@
       >Voltar</a
     >
     <a [routerLink]="'/case/' + slide.title">
-      <div class="slide-title text-4xl md:text-7xl mb-4 text-pretty font-bold">
+      <div class="slide-title text-3xl md:text-7xl mb-4 text-pretty">
         <div
           class="word inline-block"
           *ngFor="let word of titleCharArr; let wordIndex = index"
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div
-        class="slide-category char category-char text-xs md:text-base uppercase text-zinc-500 font-bold"
+        class="slide-category char category-char text-xs uppercase font-primary text-zinc-500 font-bold"
         [style]="'--_char-index: ' + 0"
       >
         {{ slide.category }}

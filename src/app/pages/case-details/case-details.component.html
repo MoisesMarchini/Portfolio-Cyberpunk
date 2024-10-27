@@ -12,16 +12,19 @@
         <i class="fa-solid fa-arrow-left text-xs"></i> Voltar</a
       >
       <div
-        class="case-title inline-block text-4xl md:text-7xl mb-4 text-pretty font-bold"
+        class="case-title inline-block text-4xl md:text-7xl mb-4 text-pretty"
       >
         {{ case.title }}
       </div>
       <div
-        class="slide-category char category-char text-xs md:text-base uppercase text-zinc-500 font-bold"
+        class="slide-category char category-char font-primary text-xs uppercase text-zinc-500 font-bold"
       >
         {{ case.category }}
       </div>
     </section>
-    <section class="body-content" [innerHTML]="case.body"></section>
+    <section
+      class="body-content text-xl font-serif"
+      [innerHTML]="case.body"
+    ></section>
   </div>
 </div>

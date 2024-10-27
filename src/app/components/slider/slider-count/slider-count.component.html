@@ -1,5 +1,15 @@
-<div class="fixed bottom-0 end-0 me-[10vmin] mb-[10vmin] z-[100] font-bold">
-  <span class="current-slide text-3xl md:text-7xl">
-    {{ getCount() }}
-  </span>
+<div class="fixed bottom-0 end-0 z-[100] font-bold text-3xl md:text-7xl">
+  <div
+    class="slider-count relative w-[15vmin] me-[10vmin] mb-[10vmin] flex flex-col justify-center items-center overflow-hidden h-[1em]"
+  >
+    <span
+      class="count absolute"
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i == currentSlide"
+      [class.prev]="i < currentSlide"
+      [class.next]="i > currentSlide"
+    >
+      {{ toRoman(i + 1) }}
+    </span>
+  </div>
 </div>
