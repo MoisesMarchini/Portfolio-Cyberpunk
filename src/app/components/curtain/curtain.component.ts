@@ -15,6 +15,8 @@ export class CurtainComponent {
 
   constructor(private curtainService: CurtainService) {
     curtainService.$isOpen.subscribe(_isOpen => {
+      if (this.isOpen === _isOpen) return;
+
       this.blankVal = false;
       this.isOpen = _isOpen
       if (!_isOpen) {
