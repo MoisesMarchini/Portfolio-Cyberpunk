@@ -1,6 +1,11 @@
 <nav
-  class="flex justify-between items-center z-10 fixed top-0 start-0 end-0 m-[10vmin]"
+  #nav
+  class="pointer-events-none z-50 bg-opacity-0 uppercase bg-black relative transition-colors top-0 start-0 end-0 p-[10vmin]"
+  [class.bg-opacity-100]="enableBg"
+  [style]="'margin-bottom: ' + nav.clientHeight * -1 + 'px'"
 >
-  <h1 class="font-bold text-xl">Moisés Marchini</h1>
-  <button>Menu</button>
+  <div class="flex justify-between items-center">
+    <h1 class="pointer-events-auto">Moisés Marchini</h1>
+    <button class="pointer-events-auto uppercase">Menu</button>
+  </div>
 </nav>

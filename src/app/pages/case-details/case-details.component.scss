@@ -1,0 +1,24 @@
+.hero-banner {
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-overlay {
+  transition: all 2s;
+}
+
+.scrolled {
+  .bg-overlay {
+    --tw-bg-opacity: 0.9;
+  }
+}
+
+@keyframes bgOpa {
+  from {
+    --tw-bg-opacity: 0.5;
+  }
+  to {
+    --tw-bg-opacity: 0.8;
+  }
+}

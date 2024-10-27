@@ -22,6 +22,8 @@ export class SlideContentComponent {
   getPreviousWordLength(wordIndex: number) {
     if (wordIndex <= 0) return 0;
 
-    return this.titleCharArr[wordIndex].length;
+
+
+    return this.titleCharArr.filter((word, index)=> index < wordIndex).map(word=> word.length).reduce((a,b)=> a+b);
   }
 }

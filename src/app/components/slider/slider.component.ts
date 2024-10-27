@@ -6,11 +6,12 @@ import { SliderControlsComponent } from "./slider-controls/slider-controls.compo
 import { SliderService } from './slider.service';
 import { SwiperContainer, SwiperSlide } from 'swiper/element';
 import { SlideContentComponent } from "./slide-content/slide-content.component";
+import { SliderCountComponent } from "./slider-count/slider-count.component";
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [SlideFrameComponent, CommonModule, SliderControlsComponent, SlideContentComponent],
+  imports: [SlideFrameComponent, CommonModule, SliderControlsComponent, SlideContentComponent, SliderCountComponent],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

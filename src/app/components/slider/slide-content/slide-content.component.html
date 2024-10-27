@@ -4,7 +4,10 @@
     slide.state
   "
 >
-  <div class="slide-info pointer-events-auto uppercase max-w-[70%]">
+  <div class="slide-info max-w-[80%]">
+    <a routerLink="/" class="block z-10 opacity-0 pointer-events-none"
+      >Voltar</a
+    >
     <a [routerLink]="'/case/' + slide.title">
       <div class="slide-title text-4xl md:text-7xl mb-4 text-pretty font-bold">
         <div
@@ -18,11 +21,11 @@
             [innerHtml]="char"
           >
           </span>
-          <span class="opacity-0">_</span>
+          <span class="opacity-0">.</span>
         </div>
       </div>
       <div
-        class="slide-category char category-char text-xs md:text-base text-zinc-500 font-bold"
+        class="slide-category char category-char text-xs md:text-base uppercase text-zinc-500 font-bold"
         [style]="'--_char-index: ' + 0"
       >
         {{ slide.category }}

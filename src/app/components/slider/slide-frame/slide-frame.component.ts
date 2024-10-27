@@ -15,12 +15,14 @@ export class SlideFrameComponent {
   @Input() slide: Slide = new Slide();
   @Input() slidesAmount = environment.slides.length;
   currentSlideIndex = 0;
+  isTouching = false;
 
   constructor(private sliderService: SliderService) {
     sliderService.$currentSlide.subscribe(slideIndex => {
       this.currentSlideIndex = slideIndex;
       this.loadSlideState();
     });
+    sliderService.$swiperClick.subscribe(isTouching=> this.isTouching = isTouching)
   }
 
   ngOnInit() {

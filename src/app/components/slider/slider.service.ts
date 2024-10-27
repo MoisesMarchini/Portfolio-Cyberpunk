@@ -13,8 +13,11 @@ export class SliderService {
   private swiperElRef?: ElementRef;
   private swiper?: Swiper;
   private slidesAmount = environment.slides.length;
+
   private currentSlideSubject = new BehaviorSubject(0);
+  private swiperClickSubject = new BehaviorSubject(false);
   private get currentSlideIndex() { return this.currentSlideSubject.value; }
+
   private swiperConfig: SwiperOptions = {
     allowTouchMove: true,
     autoplay: {
@@ -40,20 +43,21 @@ export class SliderService {
     speed: 1200,
     on: {
       slideChange: (swiper) => this.onSlideChange(swiper),
-      progress: (swiper, progress) => this.swiperProgress(swiper, progress),
+      progress: (swiper, progress) => this.swiperProgress(progress),
+      touchStart: (swiper, mouseEvent) => this.onTouchStart(mouseEvent),
+      touchEnd: (swiper, mouseEvent) => this.onTouchEnd(mouseEvent),
     },
     modules: [Parallax]
   };
 
-
+  $swiperClick = this.swiperClickSubject.asObservable();
   $currentSlide = this.currentSlideSubject.asObservable();
 
   constructor() { }
 
   setSwiperElRef(swiperElRef: ElementRef) {
     this.swiperElRef = swiperElRef;
-    this.swiper = swiperElRef.nativeElement.swiper;
-    this.initSwiper(swiperElRef)
+    this.initSwiper(swiperElRef);
   }
 
   getNextSlideIndex() {
@@ -75,12 +79,15 @@ export class SliderService {
   private initSwiper(swiperElRef: ElementRef) {
     if (!swiperElRef) return;
 
+    this.swiperConfig.initialSlide = this.currentSlideIndex;
     Object.assign(swiperElRef.nativeElement, this.swiperConfig);
     swiperElRef.nativeElement.initialize();
 
-    const swiper = swiperElRef.nativeElement.swiper;
+    const swiper = swiperElRef.nativeElement.swiper as Swiper;
+
     if (!swiper) return;
 
+    swiper.activeIndex = this.currentSlideIndex;
     this.swiper = swiper;
   }
 
@@ -89,8 +96,16 @@ export class SliderService {
     this.currentSlideSubject.next(currentIndex)
   }
 
-  private swiperProgress(swiper: Swiper, progress: number) {
-    console.log(progress)
+  private swiperProgress(progress: number) {
+
+  }
+
+  private onTouchStart(mouseEvent: MouseEvent | TouchEvent | PointerEvent) {
+    this.swiperClickSubject.next(true)
+  }
+
+  private onTouchEnd(mouseEvent: MouseEvent | TouchEvent | PointerEvent) {
+    this.swiperClickSubject.next(false)
   }
 
   private setCurrentSlide(slideIndex: number) {

@@ -3,4 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(./output.css);
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Orbitron&family=Audiowide&display=swap");
+
+span {
+  display: inline-block;
+}
+p {
+  margin-bottom: 1em;
+}

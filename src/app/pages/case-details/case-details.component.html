@@ -1,1 +1,25 @@
-<p>case-details works!</p>
+<app-navbar [enableBg]="scrolled"></app-navbar>
+<div [class.scrolled]="scrolled">
+  <div
+    class="hero-banner h-screen fixed pointer-events-none"
+    [style]="'background-image: url(' + case.bannerUrl + ');'"
+  >
+    <div
+      class="bg-overlay absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
+    ></div>
+  </div>
+  <div class="content z-10 relative mx-[10vmin] pb-[10vmin]">
+    <section class="h-screen flex flex-col justify-center max-w-[80%]">
+      <a routerLink="/" class="block z-10">Voltar</a>
+      <div class="case-title text-4xl md:text-7xl mb-4 text-pretty font-bold">
+        {{ case.title }}
+      </div>
+      <div
+        class="slide-category char category-char text-xs md:text-base uppercase text-zinc-500 font-bold"
+      >
+        {{ case.category }}
+      </div>
+    </section>
+    <section class="body-content" [innerHTML]="case.body"></section>
+  </div>
+</div>

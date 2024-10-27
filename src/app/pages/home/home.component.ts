@@ -4,7 +4,7 @@ import { SliderComponent } from "../../components/slider/slider.component";
 
 @Component({
   standalone: true,
-  imports: [SliderComponent],
+  imports: [SliderComponent, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

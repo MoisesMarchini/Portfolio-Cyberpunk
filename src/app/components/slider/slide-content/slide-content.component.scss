@@ -1,5 +1,5 @@
 .slide-content {
-  --_slide-transition-duration: 0.85s;
+  --_slide-transition-duration: 0.55s;
   --_char-transition-duration: 0.05s;
   --_default-char-delay-duration: 0.5;
   opacity: 0;
@@ -8,8 +8,10 @@
     opacity: 1;
     transition: opacity var(--_slide-transition-duration) ease-in-out;
     transition-delay: var(--_slide-transition-duration);
+    .slide-info {
+      pointer-events: all;
+    }
     .char {
-      opacity: 1;
       transform: translateY(0);
       transition-delay: calc(var(--_char-delay) + (var(--_slide-transition-duration)));
     }
@@ -18,8 +20,8 @@
 
 .char {
   --_char-delay: calc(var(--_char-index) * (var(--_char-transition-duration) * var(--_default-char-delay-duration)));
-  opacity: 0;
-  transition: all calc(var(--_char-transition-duration) * 10) ease-in-out;
+  transition: calc(var(--_char-transition-duration) * 10) ease-in-out;
+  transition-property: opacity, transform;
   transition-delay: var(--_char-delay);
 }
 .title-char {

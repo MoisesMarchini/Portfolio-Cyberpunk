@@ -8,6 +8,7 @@
   <div class="slide-bg-wrapper overflow-hidden relative h-full">
     <div
       class="slide-bg pointer-events-auto"
+      [class.hover]="isTouching"
       [style]="
         'background-image: url(' +
         slide.bgUrl +
@@ -19,6 +20,6 @@
     ></div>
   </div>
   <div
-    class="bg-overlay absolute inset-0 bg-black bg-opacity-50 pointer-events-none"
+    class="bg-overlay absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
   ></div>
 </div>
