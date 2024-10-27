@@ -1,5 +1,8 @@
 <app-curtain></app-curtain>
 <app-spinner></app-spinner>
-<div class="layout bg-black text-zinc-200 font-secondary overflow-x-hidden">
+<div
+  [class.hidden]="loadTime == 0 && startTime !== 0"
+  class="layout bg-black text-zinc-200 font-secondary overflow-x-hidden"
+>
   <router-outlet />
 </div>
