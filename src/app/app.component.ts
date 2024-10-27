@@ -33,7 +33,6 @@ export class AppComponent {
   @HostListener('window:load')
   onLoad() {
     this.loadTime = performance.now();
-    console.log(this.loadTime - this.startTime);
     this.windowService.set('load', true);
   }
 }

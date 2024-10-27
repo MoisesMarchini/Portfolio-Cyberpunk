@@ -10,16 +10,30 @@ import { CurtainService } from '../curtain/curtain.service';
   styleUrl: './spinner.component.scss'
 })
 export class SpinnerComponent {
+  minSpinnerDuration = 1000;
   loaded = false;
 
   constructor(private windowService: WindowService, private curtainService: CurtainService) {
-    windowService.getValueAsObservable('load').subscribe(isLoaded => {
-      this.loaded = isLoaded;
-      if (isLoaded == true) {
-        setTimeout(() => {
-          curtainService.close();
-        }, 600);
-      }
-    });
+    windowService.getValueAsObservable('load').subscribe((isLoaded: boolean) => this.onLoaded(isLoaded));
+  }
+
+  private onLoaded(isLoaded: boolean) {
+    const timerNow = performance.now();
+    const timerDiff = this.minSpinnerDuration - timerNow;
+    if(isLoaded && timerDiff > 0){
+      setTimeout(() => {
+        console.log(timerDiff, timerNow)
+        this.onLoaded(isLoaded)
+      }, timerDiff);
+      return;
+    }
+
+
+    this.loaded = isLoaded;
+    if (isLoaded) {
+      setTimeout(() => {
+        this.curtainService.close();
+      }, 600);
+    }
   }
 }
