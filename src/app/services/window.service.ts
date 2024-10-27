@@ -5,12 +5,12 @@ import { BehaviorSubject, map, Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class WindowService {
-  private props = new Map<string, string | number>();
+  private props = new Map<string, any>();
   private propsSubject = new BehaviorSubject(this.props);
 
   constructor() { }
 
-  set(key: string, value: string | number) {
+  set(key: string, value: any) {
     this.props.set(key, value);
     this.propsSubject.next(this.props)
   }

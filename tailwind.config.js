@@ -9,6 +9,11 @@ module.exports = {
       // screens: ["640px", "768px", "1024px", "1280px"],
     },
     extend: {
+      zIndex: {
+        curtain: 1000,
+        navbar: 100,
+        "above-curtain": 2000,
+      },
       fontFamily: {
         secondary: ["Cinzel", "serif"],
         primary: ["Raleway", "sans-serif"],

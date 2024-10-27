@@ -2,18 +2,24 @@ import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment';
 import { WindowService } from './services/window.service';
+import { SpinnerComponent } from "./components/spinner/spinner.component";
+import { CurtainComponent } from "./components/curtain/curtain.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, SpinnerComponent, CurtainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'Portfolio-Cyberpunk';
+  loadTime: number = 0; // Variável para armazenar o tempo de carregamento
+  startTime: number = 0;
 
-  constructor(private windowService: WindowService){}
+  constructor(private windowService: WindowService) {
+    this.startTime = performance.now();
+  }
 
   ngOnInit() {
     environment.cases;
@@ -22,5 +28,12 @@ export class AppComponent {
   @HostListener('window:scroll')
   onScroll() {
     this.windowService.set('scrollY', window.scrollY);
+  }
+
+  @HostListener('window:load')
+  onLoad() {
+    this.loadTime = performance.now();
+    console.log(this.loadTime - this.startTime);
+    this.windowService.set('load', true);
   }
 }

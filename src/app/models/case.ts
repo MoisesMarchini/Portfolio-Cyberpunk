@@ -9,7 +9,7 @@ export class Case {
   constructor(params?: Partial<Case>) {
     if (params){
       Object.assign(this, params);
-      this.bannerUrl = !!this.bannerUrl? this.bannerUrl : `/cases/${this.title.replaceAll(' ','').toLowerCase()}-cover.png`
+      this.bannerUrl = !!this.bannerUrl? this.bannerUrl : `/cases/${this.title.replaceAll(' ','-').toLowerCase()}.jpeg`
     }
   }
 }
