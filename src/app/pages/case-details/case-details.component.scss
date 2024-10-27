@@ -4,15 +4,6 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.bg-overlay {
-  transition: all 2s;
-}
-
-.scrolled {
-  .bg-overlay {
-    --tw-bg-opacity: 0.9;
-  }
-}
 
 @keyframes bgOpa {
   from {

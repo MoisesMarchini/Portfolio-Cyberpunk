@@ -76,6 +76,11 @@ export class SliderService {
     this.setCurrentSlide(this.getPreviousSlideIndex());
   }
 
+  setCurrentSlide(slideIndex: number) {
+    this.swiper?.slideTo(slideIndex);
+    this.currentSlideSubject.next(slideIndex);
+  }
+
   private initSwiper(swiperElRef: ElementRef) {
     if (!swiperElRef) return;
 
@@ -106,10 +111,5 @@ export class SliderService {
 
   private onTouchEnd(mouseEvent: MouseEvent | TouchEvent | PointerEvent) {
     this.swiperClickSubject.next(false)
-  }
-
-  private setCurrentSlide(slideIndex: number) {
-    this.swiper?.slideTo(slideIndex);
-    this.currentSlideSubject.next(slideIndex);
   }
 }

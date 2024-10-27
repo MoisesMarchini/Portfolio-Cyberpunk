@@ -3,11 +3,12 @@ import { Slide, SlideState } from '../../../models/slide';
 import { CommonModule } from '@angular/common';
 import { SliderService } from '../slider.service';
 import { environment } from '../../../../environments/environment';
+import { BgOverlayComponent } from "../../bg-overlay/bg-overlay.component";
 
 @Component({
   selector: 'app-slide-frame',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BgOverlayComponent],
   templateUrl: './slide-frame.component.html',
   styleUrl: './slide-frame.component.scss'
 })

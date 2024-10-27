@@ -11,3 +11,19 @@ span {
 p {
   margin-bottom: 1em;
 }
+body {
+  overflow-y: scroll;
+}
+/* Para navegadores baseados em WebKit (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000; /* Fundo da scrollbar */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #333; /* Cor mais clara para a barra de scroll */
+  border-radius: 4px; /* Bordas arredondadas para um visual mais moderno */
+}
