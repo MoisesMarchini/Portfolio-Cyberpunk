@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CurtainService } from './curtain.service';
+import { CurtainService, CurtainState } from './curtain.service';
 
 @Component({
   selector: 'app-curtain',
@@ -9,21 +9,11 @@ import { CurtainService } from './curtain.service';
   styleUrl: './curtain.component.scss'
 })
 export class CurtainComponent {
-  timeout = 2500;
-  isOpen = true;
-  blankVal = false;
+  state = CurtainState.closed;
 
   constructor(private curtainService: CurtainService) {
-    curtainService.$isOpen.subscribe(_isOpen => {
-      if (this.isOpen === _isOpen) return;
-
-      this.blankVal = false;
-      this.isOpen = _isOpen
-      if (!_isOpen) {
-        setTimeout(() => {
-          this.blankVal = true;
-        }, this.timeout);
-      }
+    curtainService.$state.subscribe(_isOpen =>{
+      this.state = _isOpen
     });
   }
 }

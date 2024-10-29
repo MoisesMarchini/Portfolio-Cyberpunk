@@ -1,0 +1,17 @@
+<div
+  [class.show]="isOpen"
+  class="menu-wrapper font-secondary text-white fixed h-full w-full overflow-hidden z-above-curtain"
+>
+  <!-- <ul class="flex flex-col w-full h-full m-[10vmin] text-2xl gap-3">
+    <li>Projeto 1</li>
+    <li>Projeto 2</li>
+    <li>Projeto 3</li>
+    <li>Projeto 4</li>
+  </ul> -->
+  <button
+    class="m-[10vmin] absolute top-0 end-0 text-xl md:text-3xl aspect-square grid place-content-center w-10 md:w-14"
+    (click)="close()"
+  >
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>

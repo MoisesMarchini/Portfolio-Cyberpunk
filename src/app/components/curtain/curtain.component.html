@@ -1,5 +1,5 @@
 <div
   class="curtain fixed left-1/2 w-[150vmax] aspect-square rounded-full bg-black z-curtain"
-  [class.show]="isOpen"
-  [class.hide]="!isOpen && blankVal"
+  [class.show]="state === 'opening' || state === 'open'"
+  [class.hide]="state === 'closed'"
 ></div>

@@ -7,6 +7,7 @@ import { SliderService } from './slider.service';
 import { SwiperContainer, SwiperSlide } from 'swiper/element';
 import { SlideContentComponent } from "./slide-content/slide-content.component";
 import { SliderCountComponent } from "./slider-count/slider-count.component";
+import { CurtainService } from '../curtain/curtain.service';
 
 @Component({
   selector: 'app-slider',
@@ -20,8 +21,12 @@ export class SliderComponent {
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
   @ViewChildren('swiperSlide') swiperSlides!: QueryList<any>;
   slides = environment.slides;
+  loading = true;
 
-  constructor(private sliderService: SliderService) {
+  constructor(private sliderService: SliderService, private curtainService: CurtainService) {
+    curtainService.$state.subscribe(curtainState => {
+      if (curtainState !== 'open') this.loading = false;
+    })
   }
 
   ngAfterViewInit() {

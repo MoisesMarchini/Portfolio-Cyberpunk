@@ -4,11 +4,12 @@ import { environment } from '../environments/environment';
 import { WindowService } from './services/window.service';
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { CurtainComponent } from "./components/curtain/curtain.component";
+import { MenuComponent } from "./layout/menu/menu.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SpinnerComponent, CurtainComponent],
+  imports: [RouterOutlet, SpinnerComponent, CurtainComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

@@ -1,6 +1,7 @@
 <swiper-container
   #swiperContainer
-  class="w-full h-screen relative overflow-auto flex flex-col"
+  class="w-full h-screen"
+  [class.hidden]="loading"
   init="false"
 >
   <swiper-slide

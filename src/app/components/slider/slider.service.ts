@@ -47,7 +47,7 @@ export class SliderService {
       touchStart: (swiper, mouseEvent) => this.onTouchStart(mouseEvent),
       touchEnd: (swiper, mouseEvent) => this.onTouchEnd(mouseEvent),
     },
-    modules: [Parallax]
+    // modules: [Parallax]
   };
 
   $swiperClick = this.swiperClickSubject.asObservable();
@@ -79,6 +79,16 @@ export class SliderService {
   setCurrentSlide(slideIndex: number) {
     this.swiper?.slideTo(slideIndex);
     this.currentSlideSubject.next(slideIndex);
+  }
+
+  toggleAutoplay(state?: 'pause' | 'resume') {
+    const autoplay = this.swiper?.autoplay;
+
+    if ((autoplay?.paused && !state)|| state === 'resume')
+      autoplay?.resume();
+
+    if ((autoplay?.running && !state) || state === 'pause')
+      autoplay?.pause();
   }
 
   private initSwiper(swiperElRef: ElementRef) {

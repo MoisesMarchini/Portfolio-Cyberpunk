@@ -6,6 +6,11 @@
 >
   <div class="flex justify-between items-center">
     <h1 class="pointer-events-auto">Moisés Marchini</h1>
-    <button class="pointer-events-auto uppercase">Menu</button>
+    <button
+      class="pointer-events-auto text-xl md:text-3xl aspect-square grid place-content-center w-10 md:w-14"
+      (click)="openMenu()"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
 </nav>

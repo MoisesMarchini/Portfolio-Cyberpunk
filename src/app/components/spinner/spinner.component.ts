@@ -18,11 +18,12 @@ export class SpinnerComponent {
   }
 
   private onLoaded(isLoaded: boolean) {
+    if (this.loaded == isLoaded) return;
+
     const timerNow = performance.now();
     const timerDiff = this.minSpinnerDuration - timerNow;
     if(isLoaded && timerDiff > 0){
       setTimeout(() => {
-        console.log(timerDiff, timerNow)
         this.onLoaded(isLoaded)
       }, timerDiff);
       return;
